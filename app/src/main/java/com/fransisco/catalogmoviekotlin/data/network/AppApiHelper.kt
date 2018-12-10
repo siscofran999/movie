@@ -9,16 +9,8 @@ import javax.inject.Inject
 
 class AppApiHelper @Inject constructor(context: Context) : ApiHelper {
 
-    override fun getMovieSearchApiCall(query: String?): Single<MovieResponse> =
-            Rx2AndroidNetworking.get(ApiEndPoint.END_POINT_MOVIE_API)
-                    .addQueryParameter("api_key", ApiEndPoint.API_KEY)
-                    .addQueryParameter("language", "en-US")
-                    .addQueryParameter("query", query)
-                    .build()
-                    .getObjectSingle(MovieResponse::class.java)
-
     override fun getMovieNowPlayingApiCall(): Single<MovieResponse> =
-            Rx2AndroidNetworking.get(ApiEndPoint.END_POINT_MOVIE_Trending_API)
+            Rx2AndroidNetworking.get(ApiEndPoint.END_POINT_MOVIE_Popular_API)
                     .addQueryParameter("api_key", ApiEndPoint.API_KEY)
                     .addQueryParameter("language", "en-US")
                     .build()

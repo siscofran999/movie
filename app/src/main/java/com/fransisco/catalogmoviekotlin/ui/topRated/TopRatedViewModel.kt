@@ -1,4 +1,4 @@
-package com.fransisco.catalogmoviekotlin.ui.upcoming
+package com.fransisco.catalogmoviekotlin.ui.topRated
 
 import android.arch.lifecycle.MutableLiveData
 import android.databinding.ObservableArrayList
@@ -8,7 +8,7 @@ import com.fransisco.catalogmoviekotlin.data.model.Movie
 import com.fransisco.catalogmoviekotlin.ui.base.BaseViewModel
 import com.fransisco.catalogmoviekotlin.utils.SchedulerProvider
 
-class UpcomingViewModel constructor(dataManager: DataManager, schedulerProvider: SchedulerProvider)  : BaseViewModel<UpcomingNavigator>(dataManager = dataManager, schedulerProvider = schedulerProvider) {
+class TopRatedViewModel constructor(dataManager: DataManager, schedulerProvider: SchedulerProvider)  : BaseViewModel<TopRatedNavigator>(dataManager = dataManager, schedulerProvider = schedulerProvider) {
 
     private val upcomingMovieObsArrayList = ObservableArrayList<Movie>()
 
@@ -19,12 +19,12 @@ class UpcomingViewModel constructor(dataManager: DataManager, schedulerProvider:
                 .compose(schedulerProvider.ioToMainSingleScheduler())
                 .subscribe({
 
-                    Log.i(UpcomingFragment.TAG, it.results?.size.toString())
+                    Log.i(TopRatedFragment.TAG, it.results?.size.toString())
                     upcomingMovieLiveData.value = it.results
 
                 }, {
 
-                    Log.e(UpcomingFragment.TAG, it.message)
+                    Log.e(TopRatedFragment.TAG, it.message)
 
                 }))
     }

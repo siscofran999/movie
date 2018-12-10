@@ -8,8 +8,6 @@ import javax.inject.Inject
 
 class AppDataManager @Inject constructor(private val context: Context, private val apiHelper: ApiHelper) : DataManager {
 
-    override fun getMovieSearchApiCall(query: String?): Single<MovieResponse> = apiHelper.getMovieSearchApiCall(query)
-
     override fun getMovieNowPlayingApiCall(): Single<MovieResponse> = apiHelper.getMovieNowPlayingApiCall()
 
     override fun getMovieUpcomingApiCall(): Single<MovieResponse>  = apiHelper.getMovieUpcomingApiCall()

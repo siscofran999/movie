@@ -1,4 +1,4 @@
-package com.fransisco.catalogmoviekotlin.ui.nowPlaying
+package com.fransisco.catalogmoviekotlin.ui.trending
 
 import android.arch.lifecycle.MutableLiveData
 import android.databinding.ObservableArrayList
@@ -8,7 +8,7 @@ import com.fransisco.catalogmoviekotlin.data.model.Movie
 import com.fransisco.catalogmoviekotlin.ui.base.BaseViewModel
 import com.fransisco.catalogmoviekotlin.utils.SchedulerProvider
 
-class NowPlayingViewModel constructor(dataManager: DataManager, schedulerProvider: SchedulerProvider) : BaseViewModel<NowPlayingNavigator>(dataManager = dataManager, schedulerProvider = schedulerProvider) {
+class TrendingViewModel constructor(dataManager: DataManager, schedulerProvider: SchedulerProvider) : BaseViewModel<TrendingNavigator>(dataManager = dataManager, schedulerProvider = schedulerProvider) {
 
     private val nowPlayingMovieObsArrayList = ObservableArrayList<Movie>()
 
@@ -19,12 +19,12 @@ class NowPlayingViewModel constructor(dataManager: DataManager, schedulerProvide
                 .compose(schedulerProvider.ioToMainSingleScheduler())
                 .subscribe({
 
-                    Log.i(NowPlayingFragment.TAG, it.results?.size.toString())
+                    Log.i(TrendingFragment.TAG, it.results?.size.toString())
                     nowPlayingMovieLiveData.value = it.results
 
                 }, {
 
-                    Log.e(NowPlayingFragment.TAG, it.message)
+                    Log.e(TrendingFragment.TAG, it.message)
 
                 }))
     }

@@ -1,8 +1,11 @@
 package com.fransisco.catalogmoviekotlin.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import java.util.ArrayList
 
+@Parcelize
 data class Movie (
 
     @SerializedName("poster_path")
@@ -48,4 +51,4 @@ data class Movie (
     var voteAverage: Double? = null,
 
     var isFavourite: Boolean = false
-)
+) : Parcelable

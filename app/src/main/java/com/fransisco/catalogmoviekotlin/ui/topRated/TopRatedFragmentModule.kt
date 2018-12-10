@@ -1,4 +1,4 @@
-package com.fransisco.catalogmoviekotlin.ui.upcoming
+package com.fransisco.catalogmoviekotlin.ui.topRated
 
 import android.arch.lifecycle.ViewModelProvider
 import android.support.v7.widget.GridLayoutManager
@@ -9,20 +9,20 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class UpcomingFragmentModule {
+class TopRatedFragmentModule {
 
     @Provides
     internal fun provideUpcomingViewModel(dataManager: DataManager, schedulerProvider: SchedulerProvider)
-            : UpcomingViewModel = UpcomingViewModel(dataManager, schedulerProvider)
+            : TopRatedViewModel = TopRatedViewModel(dataManager, schedulerProvider)
 
     @Provides
-    internal fun provideUpcomingViewModelProviderFactory(viewModel: UpcomingViewModel)
+    internal fun provideUpcomingViewModelProviderFactory(viewModel: TopRatedViewModel)
             : ViewModelProvider.Factory = ViewModelProviderFactory(viewModel)
 
     @Provides
     internal fun provideUpcomingAdapter(dataManager: DataManager, schedulerProvider: SchedulerProvider)
-            : UpcomingAdapter = UpcomingAdapter(ArrayList(), dataManager = dataManager, schedulerProvider = schedulerProvider)
+            : TopRatedAdapter = TopRatedAdapter(ArrayList(), dataManager = dataManager, schedulerProvider = schedulerProvider)
 
     @Provides
-    internal fun provideGridLayoutManager(fragment: UpcomingFragment): GridLayoutManager = GridLayoutManager(fragment.activity, 3)
+    internal fun provideGridLayoutManager(fragment: TopRatedFragment): GridLayoutManager = GridLayoutManager(fragment.activity, 2)
 }

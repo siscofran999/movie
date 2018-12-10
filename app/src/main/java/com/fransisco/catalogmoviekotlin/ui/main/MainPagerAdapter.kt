@@ -3,8 +3,8 @@ package com.fransisco.catalogmoviekotlin.ui.main
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import com.fransisco.catalogmoviekotlin.ui.nowPlaying.NowPlayingFragment
-import com.fransisco.catalogmoviekotlin.ui.upcoming.UpcomingFragment
+import com.fransisco.catalogmoviekotlin.ui.trending.TrendingFragment
+import com.fransisco.catalogmoviekotlin.ui.topRated.TopRatedFragment
 
 class MainPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
@@ -16,8 +16,8 @@ class MainPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAda
 
     override fun getItem(position: Int): Fragment? {
         return when (position) {
-            0 -> NowPlayingFragment.newInstance()
-            1 -> UpcomingFragment.newInstance()
+            0 -> TrendingFragment.newInstance()
+            1 -> TopRatedFragment.newInstance()
             else -> null
         }
     }

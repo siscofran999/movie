@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.upcoming.UpcomingFragment">
+    tools:context=".ui.trending.TrendingFragment">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.fransisco.catalogmoviekotlin.ui.upcoming.UpcomingViewModel" />
+            type="com.fransisco.catalogmoviekotlin.ui.trending.TrendingViewModel" />
 
     </data>
 
@@ -23,13 +23,21 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/upcomingRecyclerView"
+                android:id="@+id/nowPlayingRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/item_upcoming_list"
-                app:upcomingAdapter="@{viewModel.upcomingMovieObsArrayList}"/>
+                tools:listitem="@layout/item_trending_list"
+                app:nowPlayingAdapter="@{viewModel.nowPlayingMovieObsArrayList}"/>
 
         </LinearLayout>
+
+        <!--<android.support.v4.widget.ContentLoadingProgressBar-->
+            <!--android:id="@+id/address_looking_up"-->
+            <!--style="?android:attr/progressBarStyleLarge"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />-->
 
     </FrameLayout>
 

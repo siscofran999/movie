@@ -23,7 +23,7 @@ android {
         debug {
             buildConfigField("String", "API_KEY", "\"bdadf5ed74237b6549de22c90ba5d4f7\"")
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/search/movie\"")
-            buildConfigField("String", "BASE_URL_Trending", "\"https://api.themoviedb.org/3/trending/all/day\"")
+            buildConfigField("String", "BASE_URL_Popular", "\"https://api.themoviedb.org/3/movie/popular\"")
             buildConfigField("String", "BASE_URL_TopRated", "\"https://api.themoviedb.org/3/movie/top_rated\"")
             buildConfigField("String", "BASE_URL_POSTER_PATH_SMALL", "\"http://image.tmdb.org/t/p/w185/\"")
             buildConfigField("String", "BASE_URL_POSTER_PATH_BIG", "\"http://image.tmdb.org/t/p/w500/\"")
@@ -45,6 +45,15 @@ android {
     }
     dataBinding {
         enabled = true
+    }
+    androidExtensions {
+        experimental = true
+    }
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
     }
 }
 

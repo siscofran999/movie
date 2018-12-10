@@ -2,6 +2,7 @@ package com.fransisco.catalogmoviekotlin.data.model
 
 import com.google.gson.annotations.SerializedName
 
+
 data class MovieResponse (
         @SerializedName("page")
         var page: Int? = null,
